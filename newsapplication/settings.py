@@ -25,7 +25,7 @@ SECRET_KEY = '-jox0e)$**wv=fyxa14h%zi4l-r$=cimd0m=t^l7ao0l1omiv2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -126,6 +126,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+###
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
